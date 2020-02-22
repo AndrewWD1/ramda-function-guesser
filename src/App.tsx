@@ -38,6 +38,8 @@ const App = () => {
     "Expected Output" as any
   );
 
+  const [guess, setGuess] = useState([] as any[]);
+
   return (
     <AppWrapper>
       <ArgsWrapper>
@@ -62,9 +64,12 @@ const App = () => {
             onChange={e => setExpectedOutput(e.target.value)}
           />
         </form>
-        <Button onClick={() => console.log(ramdaTester(args, expectedOutput))}>
+        <Button onClick={() => setGuess(ramdaTester(args, expectedOutput))}>
           Test
         </Button>
+        {guess.map(x => (
+          <div>{x}</div>
+        ))}
       </OutputAndFunctionWrapper>
     </AppWrapper>
   );
