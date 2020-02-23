@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/ramda-function-guesser/precache-manifest.8a1540ed5cbc367a29ab493b60f92951.js"
+  "/ramda-function-guesser/precache-manifest.59270d8e1e5093cf538b45c739c6c19e.js"
 );
 
 self.addEventListener('message', (event) => {
