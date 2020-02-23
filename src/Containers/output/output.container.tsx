@@ -29,7 +29,7 @@ const Button = styled.div`
 const SingleArgWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 49vw;
+  width: 45vw;
   padding: 5px;
   margin: 5px;
   border: 1px solid black;

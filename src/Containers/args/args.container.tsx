@@ -15,13 +15,13 @@ const ArgsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 49vw;
+  width: 48vw;
 `;
 
 const SingleArgWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 50vw;
+  width: 49vw;
   padding: 5px;
   margin: 5px;
   border: 1px solid black;
