@@ -36,6 +36,7 @@ export const parseArg = (arg: { value: string; type: string }): any => {
       case javascriptTypes.object:
         return parseObject(arg.value);
       case javascriptTypes.function:
+        // eslint-disable-next-line
         return parseFunction(arg.value);
       case javascriptTypes.array:
         return parseArray(arg.value);
@@ -50,13 +51,21 @@ export const ramdaTester = (args: any[], expectedOutput: any): any[] => {
   let newExpectedOutput = parseArg(expectedOutput);
 
   for (const method in R) {
-    try {
-      let result = (R as any)[method](...newArr);
-      // eslint-disable-next-line
-      if (R.equals(result, newExpectedOutput) || result == newExpectedOutput) {
-        possibleGuesses.push(method);
-      }
-    } catch (error) {}
+    if (method === "unfold") {
+      /**
+       * !: skipping unfold for now due to memory allocation error when
+       * !: looking for a different method. The offending arguments
+       * !: are R.unfold(x => [x], [1, 2])
+       */
+    } else {
+      try {
+        let result = (R as any)[method](...newArr);
+        // eslint-disable-next-line
+        if (R.equals(result, newExpectedOutput)) {
+          possibleGuesses.push(method);
+        }
+      } catch (error) {}
+    }
   }
 
   return possibleGuesses;
