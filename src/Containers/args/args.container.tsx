@@ -7,7 +7,7 @@ import * as R from "ramda";
 import { RadioGroup, Radio } from "react-radio-group";
 
 const Input = styled.input`
-  border: 1px solid blac;
+  font-weight: bold;
   border-radius: 3px;
 `;
 
@@ -25,6 +25,7 @@ const SingleArgWrapper = styled.div`
   padding: 5px;
   margin: 5px;
   border: 1px solid black;
+  color: white;
 `;
 
 const ButtonWrapper = styled.div`
@@ -38,6 +39,7 @@ const Button = styled.div`
   border: 1px solid black;
   padding: 2px 10px;
   margin: 5px;
+  color: white;
 `;
 
 interface IProps {

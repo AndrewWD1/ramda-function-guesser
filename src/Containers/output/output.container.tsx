@@ -7,8 +7,8 @@ import { ramdaTester } from "../../utils/guesser";
 import { RadioGroup, Radio } from "react-radio-group";
 
 const Input = styled.input`
-  border: 1px solid blac;
   border-radius: 3px;
+  font-weight: bold;
 `;
 
 const OutputWrapper = styled.div`
@@ -23,6 +23,7 @@ const Button = styled.div`
   border: 1px solid black;
   padding: 2px 10px;
   margin: 5px;
+  color: white;
 `;
 
 const SingleArgWrapper = styled.div`
@@ -32,6 +33,7 @@ const SingleArgWrapper = styled.div`
   padding: 5px;
   margin: 5px;
   border: 1px solid black;
+  color: white;
 `;
 
 interface IProps {
@@ -107,7 +109,15 @@ const OutputContainer: React.FC<IProps> = ({
         Test
       </Button>
       {guess.map(x => (
-        <div>{x}</div>
+        <div style={{ color: "white" }}>
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href={`https://ramdajs.com/docs/#${x}`}
+          >
+            {x}
+          </a>
+        </div>
       ))}
     </OutputWrapper>
   );
