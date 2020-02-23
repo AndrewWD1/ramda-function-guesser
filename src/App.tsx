@@ -8,7 +8,8 @@ const AppWrapper = styled.main`
   display: flex;
   justify-content: space-around;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
   background-color: rgb(51, 68, 94);
 `;
 
