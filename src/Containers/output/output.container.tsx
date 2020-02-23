@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { Dispatch } from "redux";
 import { setExpectedOutput, setGuess } from "../../redux/actions";
 import { ramdaTester } from "../../utils/guesser";
+import { RadioGroup, Radio } from "react-radio-group";
 
 const Input = styled.input`
   border: 1px solid blac;
@@ -24,9 +25,18 @@ const Button = styled.div`
   margin: 5px;
 `;
 
+const SingleArgWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 49vw;
+  padding: 5px;
+  margin: 5px;
+  border: 1px solid black;
+`;
+
 interface IProps {
   args: any[];
-  expectedOutput: any;
+  expectedOutput: { type: "string"; value: "string" };
   setExpectedOutput: Function;
   guess: any[];
   setGuess: Function;
@@ -41,23 +51,59 @@ const OutputContainer: React.FC<IProps> = ({
 }) => {
   return (
     <OutputWrapper>
-      <form>
+      <SingleArgWrapper>
+        <RadioGroup
+          name={`output-type`}
+          selectedValue={expectedOutput.type}
+          onChange={(value: string) => {
+            setExpectedOutput({
+              ...expectedOutput,
+              type: value
+            });
+          }}
+          style={{
+            display: "flex",
+            justifyContent: "space-around",
+            width: "70%"
+          }}
+        >
+          <label>
+            <Radio value="string" />
+            String
+          </label>
+          <label>
+            <Radio value="number" />
+            number
+          </label>
+          <label>
+            <Radio value="boolean" />
+            boolean
+          </label>
+          <label>
+            <Radio value="object" />
+            object
+          </label>
+          <label>
+            <Radio value="function" />
+            function
+          </label>
+          <label>
+            <Radio value="array" />
+            array
+          </label>
+        </RadioGroup>
         <Input
           type="text"
-          value={expectedOutput}
-          onChange={e => setExpectedOutput(e.target.value)}
+          value={expectedOutput.value}
+          onChange={e =>
+            setExpectedOutput({
+              ...expectedOutput,
+              value: e.target.value
+            })
+          }
         />
-      </form>
-      <Button
-        onClick={() =>
-          setGuess(
-            ramdaTester(
-              args.map(x => x.value),
-              expectedOutput
-            )
-          )
-        }
-      >
+      </SingleArgWrapper>
+      <Button onClick={() => setGuess(ramdaTester(args, expectedOutput))}>
         Test
       </Button>
       {guess.map(x => (

@@ -15,7 +15,7 @@ const ArgsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 50vw;
+  width: 49vw;
 `;
 
 const SingleArgWrapper = styled.div`

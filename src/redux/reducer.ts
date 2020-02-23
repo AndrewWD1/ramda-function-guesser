@@ -8,7 +8,7 @@ interface arg {
 
 const INTIAL_STATE = {
   args: [{ value: "value", type: javascriptTypes.string }],
-  expectedOutput: "Expected Output",
+  expectedOutput: { type: javascriptTypes.string, value: "Expected Output" },
   guess: [] as any[]
 };
 
