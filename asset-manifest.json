@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/ramda-function-guesser/static/css/main.c04427fe.chunk.css",
-    "main.js": "/ramda-function-guesser/static/js/main.afafe490.chunk.js",
-    "main.js.map": "/ramda-function-guesser/static/js/main.afafe490.chunk.js.map",
+    "main.js": "/ramda-function-guesser/static/js/main.65255559.chunk.js",
+    "main.js.map": "/ramda-function-guesser/static/js/main.65255559.chunk.js.map",
     "runtime-main.js": "/ramda-function-guesser/static/js/runtime-main.dcdf3afe.js",
     "runtime-main.js.map": "/ramda-function-guesser/static/js/runtime-main.dcdf3afe.js.map",
     "static/js/2.3668e407.chunk.js": "/ramda-function-guesser/static/js/2.3668e407.chunk.js",
     "static/js/2.3668e407.chunk.js.map": "/ramda-function-guesser/static/js/2.3668e407.chunk.js.map",
     "index.html": "/ramda-function-guesser/index.html",
-    "precache-manifest.23074fe7cfe98a2777bddfac946a6349.js": "/ramda-function-guesser/precache-manifest.23074fe7cfe98a2777bddfac946a6349.js",
+    "precache-manifest.204d7ba01d2f476682d1d796955ce728.js": "/ramda-function-guesser/precache-manifest.204d7ba01d2f476682d1d796955ce728.js",
     "service-worker.js": "/ramda-function-guesser/service-worker.js",
     "static/css/main.c04427fe.chunk.css.map": "/ramda-function-guesser/static/css/main.c04427fe.chunk.css.map",
     "static/js/2.3668e407.chunk.js.LICENSE.txt": "/ramda-function-guesser/static/js/2.3668e407.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.dcdf3afe.js",
     "static/js/2.3668e407.chunk.js",
     "static/css/main.c04427fe.chunk.css",
-    "static/js/main.afafe490.chunk.js"
+    "static/js/main.65255559.chunk.js"
   ]
 }
