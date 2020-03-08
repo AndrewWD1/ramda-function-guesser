@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "6a5a54d96d371f626130862cd27304fc",
+    "revision": "4fc76d938620134e0d6fa075b449b9b7",
     "url": "/ramda-function-guesser/index.html"
   },
   {
-    "revision": "8a6efd7292d5cc207b67",
+    "revision": "5308e28842fba3663471",
     "url": "/ramda-function-guesser/static/css/main.f2e821fb.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ramda-function-guesser/static/js/2.2f79f106.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "8a6efd7292d5cc207b67",
-    "url": "/ramda-function-guesser/static/js/main.b166d5d1.chunk.js"
+    "revision": "5308e28842fba3663471",
+    "url": "/ramda-function-guesser/static/js/main.8a0c344f.chunk.js"
   },
   {
     "revision": "18a8896f61b1409c5c27",
