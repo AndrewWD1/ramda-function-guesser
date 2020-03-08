@@ -22,3 +22,7 @@ export const addArgument = () => ({
 export const removeArgument = () => ({
   type: ActionTypes.REMOVE_ARGUMENT
 });
+
+export const confirmJsonAlert = () => ({
+  type: ActionTypes.CONFIRM_JSON_ALERT
+});

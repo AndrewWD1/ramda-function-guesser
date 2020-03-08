@@ -15,13 +15,13 @@ const ArgsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 48vw;
+  width: 45vw;
 `;
 
 const SingleArgWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 49vw;
+  width: 45vw;
   padding: 5px;
   margin: 5px;
   border: 1px solid black;
@@ -40,6 +40,10 @@ const Button = styled.div`
   padding: 2px 10px;
   margin: 5px;
   color: white;
+`;
+const Label = styled.label`
+  font-size: 1.3rem;
+  text-align: center;
 `;
 
 interface IProps {
@@ -80,30 +84,35 @@ const ArgsContainer: React.FC<IProps> = ({
               width: "70%"
             }}
           >
-            <label>
+            <Label>
               <Radio value="string" />
+              <br />
               String
-            </label>
-            <label>
-              <Radio value="number" />
+            </Label>
+            <Label>
+              <Radio value="number" /> <br />
               number
-            </label>
-            <label>
+            </Label>
+            <Label>
               <Radio value="boolean" />
+              <br />
               boolean
-            </label>
-            <label>
+            </Label>
+            <Label>
               <Radio value="object" />
+              <br />
               object
-            </label>
-            <label>
+            </Label>
+            <Label>
               <Radio value="function" />
+              <br />
               function
-            </label>
-            <label>
+            </Label>
+            <Label>
               <Radio value="array" />
+              <br />
               array
-            </label>
+            </Label>
           </RadioGroup>
           <Input
             type="text"
