@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "8b7275a9e6b465871bcfe3621a3ca574",
+    "revision": "6a5a54d96d371f626130862cd27304fc",
     "url": "/ramda-function-guesser/index.html"
   },
   {
-    "revision": "c5df8d03cf12cee4c9fc",
+    "revision": "8a6efd7292d5cc207b67",
     "url": "/ramda-function-guesser/static/css/main.f2e821fb.chunk.css"
   },
   {
-    "revision": "e5fd6d68a46970efbb1a",
-    "url": "/ramda-function-guesser/static/js/2.e9e470e1.chunk.js"
+    "revision": "511ef1d11f2cf50c7db0",
+    "url": "/ramda-function-guesser/static/js/2.2f79f106.chunk.js"
   },
   {
     "revision": "928d7b5eb39d16fe9a880722c974b51e",
-    "url": "/ramda-function-guesser/static/js/2.e9e470e1.chunk.js.LICENSE.txt"
+    "url": "/ramda-function-guesser/static/js/2.2f79f106.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "c5df8d03cf12cee4c9fc",
-    "url": "/ramda-function-guesser/static/js/main.a03fe63a.chunk.js"
+    "revision": "8a6efd7292d5cc207b67",
+    "url": "/ramda-function-guesser/static/js/main.b166d5d1.chunk.js"
   },
   {
     "revision": "18a8896f61b1409c5c27",
