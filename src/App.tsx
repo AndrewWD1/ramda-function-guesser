@@ -1,13 +1,9 @@
-import React, { useEffect } from "react";
-import { connect } from "react-redux";
-import { Dispatch } from "redux";
-import { confirmJsonAlert } from "./redux/actions";
+import React from "react";
 import { isMobile } from "is-mobile";
 import styled, { css } from "styled-components";
 
 import ArgsContainer from "./Containers/args/args.container";
 import OutputContainer from "./Containers/output/output.container";
-import JsonAlert from "./Components/json-alert/json-alert.component";
 
 const WholeApp = styled.div`
   display: flex;
@@ -31,19 +27,7 @@ const AppWrapper = styled.main`
     `}
 `;
 
-const App: React.FC<{
-  JsonAlertToggle: boolean;
-  confirmJsonAlert: Function;
-}> = ({ JsonAlertToggle, confirmJsonAlert }) => {
-  useEffect(() => {
-    document.addEventListener("click", () => {
-      if (!JsonAlertToggle) {
-        console.log(JsonAlertToggle);
-        confirmJsonAlert();
-      }
-    });
-  });
-
+const App = () => {
   return (
     <WholeApp>
       <div
@@ -70,7 +54,6 @@ const App: React.FC<{
         </div>
         <div className="navbar-collapse collapse"></div>
       </div>
-      {!JsonAlertToggle && <JsonAlert />}
       <AppWrapper>
         <ArgsContainer />
         <OutputContainer />
@@ -79,12 +62,4 @@ const App: React.FC<{
   );
 };
 
-const mapStateToProps = (state: any) => ({
-  JsonAlertToggle: state.JsonAlertToggle
-});
-
-const mapDispatchToProps = (dispatch: Dispatch) => ({
-  confirmJsonAlert: () => dispatch(confirmJsonAlert())
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;

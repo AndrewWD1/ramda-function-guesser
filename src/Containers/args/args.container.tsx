@@ -86,8 +86,9 @@ const ArgsContainer: React.FC<IProps> = ({
   return (
     <ArgsWrapper>
       {args.map((arg, index) => (
-        <SingleArgWrapper>
+        <SingleArgWrapper key={`${arg.type}${index}wrapper`}>
           <Select
+            key={`${arg.type}${index}`}
             value={arg.type}
             onChange={e => {
               setArgs(
@@ -102,8 +103,8 @@ const ArgsContainer: React.FC<IProps> = ({
               );
             }}
           >
-            <option value="string">String </option>
-            <option value="number">number </option>
+            <option value="string">string</option>
+            <option value="number">number</option>
             <option value="boolean">boolean</option>
             <option value="object">object</option>
             <option value="function">function</option>
@@ -112,7 +113,7 @@ const ArgsContainer: React.FC<IProps> = ({
           <Input
             type="text"
             value={arg.value}
-            key={index}
+            key={`input`}
             onChange={e => {
               setArgs(
                 R.adjust(
@@ -132,6 +133,9 @@ const ArgsContainer: React.FC<IProps> = ({
         <Button onClick={() => addArgument()}>Add an Argument</Button>
         <Button onClick={() => removeArgument()}>Remove an argument</Button>
       </ButtonWrapper>
+      <p style={{ color: "white", fontSize: ".9rem" }}>
+        Enter objects in JSON format
+      </p>
     </ArgsWrapper>
   );
 };

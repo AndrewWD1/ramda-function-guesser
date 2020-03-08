@@ -114,7 +114,7 @@ const OutputContainer: React.FC<IProps> = ({
         Test
       </Button>
       {guess.map(x => (
-        <div style={{ color: "white" }}>
+        <div key={`${x}`} style={{ color: "white" }}>
           <a
             target="_blank"
             rel="noopener noreferrer"

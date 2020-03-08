@@ -9,8 +9,7 @@ interface arg {
 const INTIAL_STATE = {
   args: [{ value: "value", type: javascriptTypes.string }],
   expectedOutput: { type: javascriptTypes.string, value: "Expected Output" },
-  guess: [] as any[],
-  JsonAlertToggle: false
+  guess: [] as any[]
 };
 
 export const reducer = (
@@ -43,11 +42,7 @@ export const reducer = (
         ...state,
         args: state.args.slice(0, state.args.length - 1)
       };
-    case ActionTypes.CONFIRM_JSON_ALERT:
-      return {
-        ...state,
-        JsonAlertToggle: true
-      };
+
     default:
       return state;
   }
