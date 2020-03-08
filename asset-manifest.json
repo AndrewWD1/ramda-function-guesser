@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/ramda-function-guesser/static/css/main.f2e821fb.chunk.css",
-    "main.js": "/ramda-function-guesser/static/js/main.d9fc835d.chunk.js",
-    "main.js.map": "/ramda-function-guesser/static/js/main.d9fc835d.chunk.js.map",
+    "main.js": "/ramda-function-guesser/static/js/main.a03fe63a.chunk.js",
+    "main.js.map": "/ramda-function-guesser/static/js/main.a03fe63a.chunk.js.map",
     "runtime-main.js": "/ramda-function-guesser/static/js/runtime-main.dcdf3afe.js",
     "runtime-main.js.map": "/ramda-function-guesser/static/js/runtime-main.dcdf3afe.js.map",
-    "static/js/2.2e8e1fdf.chunk.js": "/ramda-function-guesser/static/js/2.2e8e1fdf.chunk.js",
-    "static/js/2.2e8e1fdf.chunk.js.map": "/ramda-function-guesser/static/js/2.2e8e1fdf.chunk.js.map",
+    "static/js/2.e9e470e1.chunk.js": "/ramda-function-guesser/static/js/2.e9e470e1.chunk.js",
+    "static/js/2.e9e470e1.chunk.js.map": "/ramda-function-guesser/static/js/2.e9e470e1.chunk.js.map",
     "index.html": "/ramda-function-guesser/index.html",
-    "precache-manifest.5409116c49c03bd2aa8477d266fae977.js": "/ramda-function-guesser/precache-manifest.5409116c49c03bd2aa8477d266fae977.js",
+    "precache-manifest.805715efe756e0ba225c6d6cfb31a7a6.js": "/ramda-function-guesser/precache-manifest.805715efe756e0ba225c6d6cfb31a7a6.js",
     "service-worker.js": "/ramda-function-guesser/service-worker.js",
     "static/css/main.f2e821fb.chunk.css.map": "/ramda-function-guesser/static/css/main.f2e821fb.chunk.css.map",
-    "static/js/2.2e8e1fdf.chunk.js.LICENSE.txt": "/ramda-function-guesser/static/js/2.2e8e1fdf.chunk.js.LICENSE.txt"
+    "static/js/2.e9e470e1.chunk.js.LICENSE.txt": "/ramda-function-guesser/static/js/2.e9e470e1.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.dcdf3afe.js",
-    "static/js/2.2e8e1fdf.chunk.js",
+    "static/js/2.e9e470e1.chunk.js",
     "static/css/main.f2e821fb.chunk.css",
-    "static/js/main.d9fc835d.chunk.js"
+    "static/js/main.a03fe63a.chunk.js"
   ]
 }
