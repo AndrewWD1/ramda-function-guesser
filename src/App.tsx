@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import styled from "styled-components";
+import { Dispatch } from "redux";
+import { confirmJsonAlert } from "./redux/actions";
+import { isMobile } from "is-mobile";
+import styled, { css } from "styled-components";
 
 import ArgsContainer from "./Containers/args/args.container";
 import OutputContainer from "./Containers/output/output.container";
 import JsonAlert from "./Components/json-alert/json-alert.component";
-
-import { Dispatch } from "redux";
-import { confirmJsonAlert } from "./redux/actions";
 
 const WholeApp = styled.div`
   display: flex;
@@ -22,6 +22,13 @@ const AppWrapper = styled.main`
   min-height: 100vh;
   height: 100%;
   background-color: #282a36;
+  ${() =>
+    isMobile() &&
+    css`
+      flex-direction: column;
+      justify-content: start;
+      align-items: center;
+    `}
 `;
 
 const App: React.FC<{
@@ -29,7 +36,12 @@ const App: React.FC<{
   confirmJsonAlert: Function;
 }> = ({ JsonAlertToggle, confirmJsonAlert }) => {
   useEffect(() => {
-    document.addEventListener("click", () => confirmJsonAlert());
+    document.addEventListener("click", () => {
+      if (!JsonAlertToggle) {
+        console.log(JsonAlertToggle);
+        confirmJsonAlert();
+      }
+    });
   });
 
   return (

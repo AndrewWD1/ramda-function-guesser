@@ -1,14 +1,16 @@
 import React from "react";
 import { connect } from "react-redux";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { Dispatch } from "redux";
 import { setExpectedOutput, setGuess } from "../../redux/actions";
 import { ramdaTester } from "../../utils/guesser";
-import { RadioGroup, Radio } from "react-radio-group";
+import { isMobile } from "is-mobile";
 
 const Input = styled.input`
   border-radius: 3px;
   font-weight: bold;
+  width: 68%;
+  padding: 0 0.5rem;
 `;
 
 const OutputWrapper = styled.div`
@@ -16,6 +18,11 @@ const OutputWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   width: 45vw;
+  ${() =>
+    isMobile() &&
+    css`
+      width: 95%;
+    `}
 `;
 
 const Button = styled.div`
@@ -34,11 +41,28 @@ const SingleArgWrapper = styled.div`
   padding: 5px;
   margin: 5px;
   border: 1px solid black;
+  border-radius: 3px;
   color: white;
+  ${() =>
+    isMobile() &&
+    css`
+      width: 95%;
+    `}
 `;
-const Label = styled.label`
-  font-size: 1.3rem;
-  text-align: center;
+
+const Select = styled.select`
+  border-radius: 5px;
+  display: "flex";
+  justify-content: "space-around";
+  width: 28%;
+
+  &:focus {
+    border-color: #aaa;
+    box-shadow: 0 0 1px 2px rgba(59, 153, 252, 0.7);
+    box-shadow: 0 0 0 2px -moz-mac-focusring;
+    color: #222;
+    outline: none;
+  }
 `;
 
 interface IProps {
@@ -59,51 +83,22 @@ const OutputContainer: React.FC<IProps> = ({
   return (
     <OutputWrapper>
       <SingleArgWrapper>
-        <RadioGroup
-          name={`output-type`}
-          selectedValue={expectedOutput.type}
-          onChange={(value: string) => {
+        <Select
+          value={expectedOutput.type}
+          onChange={e => {
             setExpectedOutput({
               ...expectedOutput,
-              type: value
+              type: e.target.value
             });
           }}
-          style={{
-            display: "flex",
-            justifyContent: "space-around",
-            width: "70%"
-          }}
         >
-          <Label>
-            <Radio value="string" /> <br />
-            String
-          </Label>
-          <Label>
-            <Radio value="number" />
-            <br />
-            number
-          </Label>
-          <Label>
-            <Radio value="boolean" />
-            <br />
-            boolean
-          </Label>
-          <Label>
-            <Radio value="object" />
-            <br />
-            object
-          </Label>
-          <Label>
-            <Radio value="function" />
-            <br />
-            function
-          </Label>
-          <Label>
-            <Radio value="array" />
-            <br />
-            array
-          </Label>
-        </RadioGroup>
+          <option value="string">String </option>
+          <option value="number">number </option>
+          <option value="boolean">boolean</option>
+          <option value="object">object</option>
+          <option value="function">function</option>
+          <option value="array">array</option>
+        </Select>
         <Input
           type="text"
           value={expectedOutput.value}
