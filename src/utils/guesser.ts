@@ -32,7 +32,7 @@ export const parseArg = (arg: { value: string; type: string }): any => {
       case javascriptTypes.number:
         return parseNumber(arg.value);
       case javascriptTypes.boolean:
-        return parseBoolean(arg.value);
+        return parseBoolean(arg.value.toLowerCase());
       case javascriptTypes.object:
         return parseObject(arg.value);
       case javascriptTypes.function:
