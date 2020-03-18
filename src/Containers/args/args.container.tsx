@@ -1,39 +1,17 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { connect } from "react-redux";
 import styled, { css } from "styled-components";
 import { Dispatch } from "redux";
 import { setArgs, addArgument, removeArgument } from "../../redux/actions";
-import * as R from "ramda";
 import { isMobile } from "is-mobile";
-
-const Input = styled.input`
-  font-weight: bold;
-  border-radius: 3px;
-  width: 68%;
-  padding: 0 0.5rem;
-`;
+import { DraggableArg } from "../../Components/draggable-arg/draggable-arg.component";
+import update from "immutability-helper";
 
 const ArgsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 45vw;
-  ${() =>
-    isMobile() &&
-    css`
-      width: 95%;
-    `}
-`;
-
-const SingleArgWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 45vw;
-  padding: 5px;
-  margin: 5px;
-  border: 1px solid black;
-  border-radius: 3px;
-  color: white;
   ${() =>
     isMobile() &&
     css`
@@ -55,21 +33,6 @@ const Button = styled.div`
   color: white;
 `;
 
-const Select = styled.select`
-  border-radius: 5px;
-  display: "flex";
-  justify-content: "space-around";
-  width: 28%;
-
-  &:focus {
-    border-color: #aaa;
-    box-shadow: 0 0 1px 2px rgba(59, 153, 252, 0.7);
-    box-shadow: 0 0 0 2px -moz-mac-focusring;
-    color: #222;
-    outline: none;
-  }
-`;
-
 interface IProps {
   args: any[];
   setArgs: Function;
@@ -83,51 +46,33 @@ const ArgsContainer: React.FC<IProps> = ({
   addArgument,
   removeArgument
 }) => {
+  const moveCard = useCallback(
+    (dragIndex: number, hoverIndex: number) => {
+      const dragCard = args[dragIndex];
+      console.log(hoverIndex, dragIndex);
+      setArgs(
+        update(args, {
+          $splice: [
+            [dragIndex, 1],
+            [hoverIndex, 0, dragCard]
+          ]
+        })
+      );
+    },
+    [args]
+  );
+
   return (
     <ArgsWrapper>
       {args.map((arg, index) => (
-        <SingleArgWrapper key={`${arg.type}${index}wrapper`}>
-          <Select
-            key={`${arg.type}${index}`}
-            value={arg.type}
-            onChange={e => {
-              setArgs(
-                R.adjust(
-                  index,
-                  x => ({
-                    ...x,
-                    type: e.target.value
-                  }),
-                  args
-                )
-              );
-            }}
-          >
-            <option value="string">string</option>
-            <option value="number">number</option>
-            <option value="boolean">boolean</option>
-            <option value="object">object</option>
-            <option value="function">function</option>
-            <option value="array">array</option>
-          </Select>
-          <Input
-            type="text"
-            value={arg.value}
-            key={`input`}
-            onChange={e => {
-              setArgs(
-                R.adjust(
-                  index,
-                  x => ({
-                    ...x,
-                    value: e.target.value
-                  }),
-                  args
-                )
-              );
-            }}
-          />
-        </SingleArgWrapper>
+        <DraggableArg
+          id={arg.id}
+          index={index}
+          moveCard={moveCard}
+          setArgs={setArgs}
+          arg={arg}
+          args={args}
+        />
       ))}
       <ButtonWrapper>
         <Button onClick={() => addArgument()}>Add an Argument</Button>

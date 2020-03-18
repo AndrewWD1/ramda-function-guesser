@@ -1,15 +1,21 @@
 import { ActionTypes } from "./action-types";
 import { javascriptTypes } from "../utils/guesser";
 
-interface arg {
+export interface IArg {
   value: any;
   type: string;
+  id: number;
 }
 
 const INTIAL_STATE = {
-  args: [{ value: "value", type: javascriptTypes.string }],
-  expectedOutput: { type: javascriptTypes.string, value: "Expected Output" },
-  guess: [] as any[]
+  args: [{ value: "value", type: javascriptTypes.string, id: 0 }],
+  expectedOutput: {
+    type: javascriptTypes.string,
+    value: "Expected Output",
+    id: 0
+  },
+  guess: [] as any[],
+  nextId: 1
 };
 
 export const reducer = (
@@ -35,7 +41,11 @@ export const reducer = (
     case ActionTypes.ADD_ARGUMENT:
       return {
         ...state,
-        args: [...state.args, { value: "value", type: javascriptTypes.string }]
+        args: [
+          ...state.args,
+          { value: "value", type: javascriptTypes.string, id: state.nextId }
+        ],
+        nextId: state.nextId += 1
       };
     case ActionTypes.REMOVE_ARGUMENT:
       return {
