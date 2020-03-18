@@ -121,17 +121,22 @@ const Card: React.FC<CardProps> = ({
     }
   });
 
-  const [{ isDragging }, drag] = useDrag({
+  const [{ opacity }, drag, preview] = useDrag({
     item: { type: "CARD", id, index },
     collect: (monitor: any) => ({
-      isDragging: monitor.isDragging()
+      opacity: monitor.isDragging() ? 0.4 : 1
     })
   });
 
-  const opacity = isDragging ? 0 : 1;
   drag(drop(ref));
   return (
-    <SingleArgWrapper ref={ref} key={`${arg.type}${index}wrapper`}>
+    <SingleArgWrapper ref={preview} key={`${arg.type}${index}wrapper`}>
+      <div
+        ref={drag}
+        style={{ width: "20px", height: "20px", backgroundColor: "white" }}
+      >
+        <div></div>
+      </div>
       <Select
         key={`${arg.type}${index}`}
         value={arg.type}

@@ -39,13 +39,6 @@ const Select = styled.select`
     color: #222;
     outline: none;
   }
-const Button = styled.div`
-  cursor: pointer;
-  border-radius: 3px;
-  border: 1px solid black;
-  padding: 2px 10px;
-  margin: 5px;
-  color: white;
 `;
 
 interface IProps {
@@ -64,7 +57,6 @@ const ArgsContainer: React.FC<IProps> = ({
   const moveCard = useCallback(
     (dragIndex: number, hoverIndex: number) => {
       const dragCard = args[dragIndex];
-      console.log(hoverIndex, dragIndex);
       setArgs(
         update(args, {
           $splice: [
@@ -77,10 +69,12 @@ const ArgsContainer: React.FC<IProps> = ({
     [args]
   );
 
+
   return (
     <ArgsWrapper>
       {args.map((arg, index) => (
         <DraggableArg
+          key={arg.id}
           id={arg.id}
           index={index}
           moveCard={moveCard}
