@@ -5,6 +5,7 @@ import { Dispatch } from "redux";
 import { setExpectedOutput, setGuess } from "../../redux/actions";
 import { ramdaTester } from "../../utils/guesser";
 import { isMobile } from "is-mobile";
+import { Button } from "../../Components/custom-button/custom-button.component";
 
 const Input = styled.input`
   border-radius: 3px;
@@ -23,15 +24,6 @@ const OutputWrapper = styled.div`
     css`
       width: 95%;
     `}
-`;
-
-const Button = styled.div`
-  cursor: pointer;
-  border-radius: 3px;
-  border: 1px solid black;
-  padding: 2px 10px;
-  margin: 5px;
-  color: white;
 `;
 
 const SingleArgWrapper = styled.div`

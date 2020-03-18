@@ -4,6 +4,7 @@ import styled, { css } from "styled-components";
 import { Dispatch } from "redux";
 import { setArgs, addArgument, removeArgument } from "../../redux/actions";
 import * as R from "ramda";
+import { Button } from "../../Components/custom-button/custom-button.component";
 import { isMobile } from "is-mobile";
 
 const Input = styled.input`
@@ -44,15 +45,6 @@ const SingleArgWrapper = styled.div`
 const ButtonWrapper = styled.div`
   display: flex;
   flex-direction: row;
-`;
-
-const Button = styled.div`
-  cursor: pointer;
-  border-radius: 3px;
-  border: 1px solid black;
-  padding: 2px 10px;
-  margin: 5px;
-  color: white;
 `;
 
 const Select = styled.select`
@@ -133,7 +125,7 @@ const ArgsContainer: React.FC<IProps> = ({
         <Button onClick={() => addArgument()}>Add an Argument</Button>
         <Button onClick={() => removeArgument()}>Remove an argument</Button>
       </ButtonWrapper>
-      <p style={{ color: "white", fontSize: ".9rem" }}>
+      <p style={{ color: "white", fontSize: "1.1rem" }}>
         Enter objects in JSON format
       </p>
     </ArgsWrapper>

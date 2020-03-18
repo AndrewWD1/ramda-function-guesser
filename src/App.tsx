@@ -36,20 +36,9 @@ const App = () => {
         role="navigation"
       >
         <div className="navbar-header">
-          <button
-            type="button"
-            className="navbar-toggle"
-            data-toggle="collapse"
-            data-target=".navbar-collapse"
-          >
-            <span className="sr-only">Toggle navigation</span>
-            <span className="icon-bar"></span>
-            <span className="icon-bar"></span>
-            <span className="icon-bar"></span>
-          </button>
           <a className="navbar-brand" href="http://ramdajs.com">
-            <strong>Ramda </strong>
-            <span className="version">v0.27.0</span>
+            <strong>Ramda Function Guesser </strong>
+            {!isMobile() && <span className="version"> - Ramda v0.27.0</span>}
           </a>
         </div>
         <div className="navbar-collapse collapse"></div>
