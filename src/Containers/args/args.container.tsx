@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import styled, { css } from "styled-components";
 import { Dispatch } from "redux";
 import { setArgs, addArgument, removeArgument } from "../../redux/actions";
-import * as R from "ramda";
 import { Button } from "../../Components/custom-button/custom-button.component";
 import { isMobile } from "is-mobile";
 import { DraggableArg } from "../../Components/draggable-arg/draggable-arg.component";
@@ -24,21 +23,6 @@ const ArgsWrapper = styled.div`
 const ButtonWrapper = styled.div`
   display: flex;
   flex-direction: row;
-`;
-
-const Select = styled.select`
-  border-radius: 5px;
-  display: "flex";
-  justify-content: "space-around";
-  width: 28%;
-
-  &:focus {
-    border-color: #aaa;
-    box-shadow: 0 0 1px 2px rgba(59, 153, 252, 0.7);
-    box-shadow: 0 0 0 2px -moz-mac-focusring;
-    color: #222;
-    outline: none;
-  }
 `;
 
 interface IProps {
@@ -66,9 +50,9 @@ const ArgsContainer: React.FC<IProps> = ({
         })
       );
     },
+    // eslint-disable-next-line
     [args]
   );
-
 
   return (
     <ArgsWrapper>

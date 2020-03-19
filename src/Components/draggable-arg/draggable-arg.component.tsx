@@ -10,7 +10,7 @@ import { IArg } from "../../redux/reducer";
 const Input = styled.input`
   font-weight: bold;
   border-radius: 3px;
-  width: 50%;
+  width: 60%;
   padding: 0 0.5rem;
 `;
 
@@ -34,7 +34,7 @@ const Select = styled.select`
   border-radius: 5px;
   display: "flex";
   justify-content: "space-around";
-  width: 28%;
+  width: 30%;
 
   &:focus {
     border-color: #aaa;
@@ -121,7 +121,7 @@ const Card: React.FC<CardProps> = ({
     }
   });
 
-  const [{ opacity }, drag, preview] = useDrag({
+  const [, drag, preview] = useDrag({
     item: { type: "CARD", id, index },
     collect: (monitor: any) => ({
       opacity: monitor.isDragging() ? 0.4 : 1
@@ -131,7 +131,7 @@ const Card: React.FC<CardProps> = ({
   drag(drop(ref));
   return (
     <SingleArgWrapper ref={preview} key={`${arg.type}${index}wrapper`}>
-      <HamburgerButton ref={drag} />
+      {!isMobile() && <HamburgerButton ref={drag} />}
       <Select
         key={`${arg.type}${index}`}
         value={arg.type}
