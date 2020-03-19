@@ -4,7 +4,7 @@ import { useDrag, useDrop, DropTargetMonitor } from "react-dnd";
 import { XYCoord } from "dnd-core";
 import * as R from "ramda";
 import { isMobile } from "is-mobile";
-
+import HamburgerButton from "../hamburger-button/hamburger-button.component";
 import { IArg } from "../../redux/reducer";
 
 const Input = styled.input`
@@ -131,12 +131,7 @@ const Card: React.FC<CardProps> = ({
   drag(drop(ref));
   return (
     <SingleArgWrapper ref={preview} key={`${arg.type}${index}wrapper`}>
-      <div
-        ref={drag}
-        style={{ width: "20px", height: "20px", backgroundColor: "white" }}
-      >
-        <div></div>
-      </div>
+      <HamburgerButton ref={drag} />
       <Select
         key={`${arg.type}${index}`}
         value={arg.type}
